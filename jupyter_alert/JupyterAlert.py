@@ -30,7 +30,6 @@ class JupyterAlert(Magics):
         }
 
     def send_alert(self, title="Great title", body="Awesome body"):
-        print("ALERTING")
         apobj.notify(
             body=body,
             title=title,
@@ -88,8 +87,6 @@ class JupyterAlert(Magics):
         self.__class__._events = self.pre_run_cell, self.post_run_cell
 
     def pre_run_cell(self, info):
-        print(os.path.isfile(apprise_config_path))
-        # print("PRE RUN")
         self.run_start_time = time.time()
 
     def post_run_cell(self, result):
