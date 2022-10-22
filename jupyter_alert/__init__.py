@@ -1,5 +1,5 @@
-from .jupyter_alert import JupyterNotifyMagics
+from .JupyterAlert import JupyterAlert
 
 
 def load_ipython_extension(ipython):
-    ipython.register_magics(JupyterNotifyMagics)
+    ipython.register_magics(JupyterAlert)
