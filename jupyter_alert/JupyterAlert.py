@@ -90,16 +90,6 @@ class JupyterAlert(Magics):
         self.run_start_time = time.time()
 
     def post_run_cell(self, result):
-        # Set last output as notification message
-        # if True:
-        #     last_output = None #get_ipython().user_global_ns['_']
-        #     try:
-        #         if last_output is not None and len(str(last_output)):
-        #             print(last_output)
-        #             # options['body'] = str(last_output)
-        #     except ValueError:
-        #         pass # can't convert to string. Use default message
-
         if elapsed_time:=self.check_after(): 
             body = f"Cell executed in {elapsed_time:.1f} seconds."
             self.send_alert(title="Completed cell execution", body = body)
